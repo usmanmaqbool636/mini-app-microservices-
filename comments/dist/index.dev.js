@@ -75,7 +75,7 @@ app.post("/events", function _callee2(req, res) {
           console.log("received Event =>", type);
 
           if (!(type === "CommentModerated")) {
-            _context2.next = 9;
+            _context2.next = 11;
             break;
           }
 
@@ -85,16 +85,18 @@ app.post("/events", function _callee2(req, res) {
             return comment.id === id;
           });
           comment.status = status;
-          _context2.next = 9;
+          comment.postId = postId;
+          console.log("comment==>>", comment);
+          _context2.next = 11;
           return regeneratorRuntime.awrap(axios.post("http://localhost:4005/events", {
             type: "CommentUpdated",
             data: _objectSpread({}, comment)
           }));
 
-        case 9:
+        case 11:
           res.send({});
 
-        case 10:
+        case 12:
         case "end":
           return _context2.stop();
       }

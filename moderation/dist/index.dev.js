@@ -22,14 +22,15 @@ app.post("/events", function _callee(req, res) {
       switch (_context.prev = _context.next) {
         case 0:
           _req$body = req.body, type = _req$body.type, data = _req$body.data;
+          console.log("mod=>", data);
 
           if (!(type === "CommentCreated")) {
-            _context.next = 5;
+            _context.next = 6;
             break;
           }
 
           status = data.content.includes("orange") ? "rejected" : "approved";
-          _context.next = 5;
+          _context.next = 6;
           return regeneratorRuntime.awrap(axios.post("http://localhost:4005/events", {
             type: "CommentModerated",
             data: _objectSpread({}, data, {
@@ -37,10 +38,10 @@ app.post("/events", function _callee(req, res) {
             })
           }));
 
-        case 5:
+        case 6:
           return _context.abrupt("return", res.send({}));
 
-        case 6:
+        case 7:
         case "end":
           return _context.stop();
       }

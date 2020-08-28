@@ -6,9 +6,10 @@ const app = express();
 app.use(bodyParser.json());
 app.post("/events",async (req, res) => {
     const { type, data } = req.body;
+    console.log("mod=>",data)
     if (type === "CommentCreated") {
         const status = data.content.includes("orange") ? "rejected" : "approved";
-        await axios.post("http://localhost:4005/events", { type: "CommentModerated", data: { ...data, status } })
+        await axios.post("http://localhost:4005/events", { type: "CommentModerated", data: { ...data, status, } })
     }
     return res.send({});
 });
