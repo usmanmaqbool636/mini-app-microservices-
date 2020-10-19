@@ -9,7 +9,11 @@
     "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+<<<<<<< HEAD:Client1/package.json
     "react-scripts": "^3.4.2"
+=======
+    "react-scripts": "3.4.0"
+>>>>>>> dff3e7d7f66615923cc05af7b67399a3eba0924e:client/package.json
   },
   "scripts": {
     "start": "react-scripts start",
