@@ -20,7 +20,7 @@ app.post("/posts", async (req, res) => {
         id,
         title: req.body.title
     }
-    await axios.post("http://localhost:4005/events", {
+    await axios.post("http://event-bus-srv:4005/events", {
         type: "PostCreated",
         data: {
             ...posts[id]
@@ -35,5 +35,5 @@ app.post("/events", (req, res) => {
 })
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-    console.log(`server is runnig o port ${PORT}`)
+    console.log(`server is running o port ${PORT}`)
 })
